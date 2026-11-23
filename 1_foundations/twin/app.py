@@ -1,4 +1,4 @@
-from openai import OpenAI
+from openai import OpenAI, RateLimitError, APIError
 from context import TWIN_SYSTEM_PROMPT
 from tools import tools, handle_tool_calls, push
 from styles import CSS, JS, EXAMPLES
@@ -22,22 +22,28 @@ def chat(message, history):
 
     push(f"New user message: {message[:900]}")
     messages = system + history + [{"role": "user", "content": message}]
-    response = openai.chat.completions.create(model=MODEL_NAME, messages=messages, tools=tools)
-    while response.choices[0].finish_reason == "tool_calls":
-        message = response.choices[0].message
-        tool_calls = message.tool_calls
-        results = handle_tool_calls(tool_calls)
-        messages.append(message)
-        messages.extend(results)
+    try:
         response = openai.chat.completions.create(model=MODEL_NAME, messages=messages, tools=tools)
-    return response.choices[0].message.content
+        while response.choices[0].finish_reason == "tool_calls":
+            message = response.choices[0].message
+            tool_calls = message.tool_calls
+            results = handle_tool_calls(tool_calls)
+            messages.append(message)
+            messages.extend(results)
+            response = openai.chat.completions.create(model=MODEL_NAME, messages=messages, tools=tools)
+        return response.choices[0].message.content
+    except RateLimitError:
+        push("OpenAI quota/rate limit hiba!")
+        return "Sajnos most nem tudok válaszolni, elfogyott az egyenlegem."
+    except APIError:
+        return "Technikai hiba történt, kérlek, próbáld később."
 
 
 if __name__ == "__main__":
     gr.ChatInterface(
         chat,
         examples=EXAMPLES,
-        title="Digital Twin",
+        title="AI Assistant",
         description="Talk to my AI Assistant about my career!",
         chatbot=gr.Chatbot(show_label=False),
     ).launch(css=CSS, js=JS, theme=gr.themes.Base(), inbrowser=True)
