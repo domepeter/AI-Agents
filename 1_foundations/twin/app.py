@@ -44,6 +44,6 @@ if __name__ == "__main__":
         chat,
         examples=EXAMPLES,
         title="AI Assistant",
-        description="Talk to my AI Assistant about my career!",
+        description="Talk to my AI Assistant about my career! \n\n You might have to wait up to a minute for the first response while the app starts",
         chatbot=gr.Chatbot(show_label=False),
     ).launch(css=CSS, js=JS, theme=gr.themes.Base(), inbrowser=True)
