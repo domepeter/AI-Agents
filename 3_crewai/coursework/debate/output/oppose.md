@@ -1,0 +1,9 @@
+I oppose the motion.
+
+LLMs should **not** be restricted by law in the broad way this motion suggests, because blanket legal limits would punish the useful majority for the misuse of a minority. LLMs are general-purpose tools—like the internet, calculators, or search engines. They can assist with education, accessibility, medical paperwork, coding, translation, and productivity. Overregulating them would slow innovation, raise costs, and block ordinary people from benefiting from a transformative technology.
+
+The real issue is not the existence of LLMs, but **how people use them**. We do not ban hammers because they can be used to harm someone; we punish the harmful act. The same principle should apply here. Existing laws against fraud, defamation, identity theft, harassment, and data abuse already cover the worst misuse. What we need is enforcement of those laws, not new sweeping restrictions on the models themselves.
+
+Broad legal restrictions also create a dangerous precedent. Once governments gain power to tightly control LLMs, they can censor speech, limit competition, and entrench only the biggest companies that can afford compliance. That hurts startups, researchers, and small developers far more than it hurts bad actors. In practice, overregulation protects monopolies and reduces public access to innovation.
+
+A better approach is targeted accountability: punish illegal use, require transparency where necessary, and encourage voluntary safety standards. But do not restrict the technology itself with heavy-handed laws. If we want progress, access, and competition, LLMs should remain open and usable—not shackled by broad legal limits.
