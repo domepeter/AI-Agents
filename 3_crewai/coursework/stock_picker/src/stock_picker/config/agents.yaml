@@ -29,7 +29,7 @@ stock_picker:
     You have a talent for synthesizing research and picking the best company for investment.
   llm: openai/gpt-5.4-mini
 
-  manager:
+manager:
   role: >
     Manager
   goal: >
